@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	int n=0,p=1,x,l,i;
+	
+	scanf("%d",&l);
+	
+        //int * arr = (int *)malloc(l*sizeof(int));
+	int arr[l];
+	
+	for(i=0;i<l;i++)
+	{
+	    scanf("%d",&x);
+	    
+	    if(x<0)
+	    {
+	        if(n==0)
+	        arr[n++] = x;
+	        else
+	        {
+	            Rshift(n,p,arr);
+                    arr[n++] = x;
+                    p++;
+	        }
+	        
+	    }
+	    else
+	    {
+	        arr[p++] = x;
+	    }
+	    
+	}
+	
+	for(i=0;i<l;i++)
+	printf("%d ",arr[i]);
+}
+
+void Rshift(int n, int p, int * arr)
+{
+    while(p>n)
+    {
+        arr[p] = arr[p-1];
+        p--;
+    }
+}
